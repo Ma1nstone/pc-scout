@@ -15,7 +15,7 @@ const NotificationsContext = createContext({
   requestNotifPermission: async () => {},
 });
 
-const BASE_TITLE = "PC Scout";
+const BASE_TITLE = "PCScout";
 const BASE_FAVICON = "/favicon.svg?v=2";
 
 function browserNotifSupported() {
@@ -123,7 +123,7 @@ export function NotificationsProvider({ children }) {
     if (browserNotifSupported() && notifPermission === "granted") {
       try {
         const n = new Notification(title, {
-          body: body || "PC Scout",
+          body: body || "PCScout",
           icon: "/favicon.svg?v=2",
         });
         n.onclick = () => {
@@ -208,7 +208,7 @@ export function NotificationsProvider({ children }) {
             .single();
 
           if (msg) {
-            notify(msg.title, "New message on PC Scout", msg.id);
+            notify(msg.title, "New message on PCScout", msg.id);
           }
         }
       )

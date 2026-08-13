@@ -1,0 +1,33 @@
+# PCScout
+
+> PCScout is a web app for people who buy, build, and flip PCs: it tracks a personal parts inventory, assembles parts into complete builds, estimates resale value, and logs sales and profit. Internally/in some project files it may also be referred to as "BenchLedger" — same product.
+
+PCScout requires signing in with a Google account. Data is private per account: parts, builds, and bundles are only visible to the person who created them, unless a build is explicitly shared with another account and that account accepts the share. Most pages below therefore require authentication and are not publicly crawlable — this file describes what the product does and how it's organized, not a public content index.
+
+## What it does
+
+- **Parts inventory** — log purchased PC components (CPU, GPU, Motherboard, RAM, Storage, PSU, Case, Cooler, Monitor, Peripheral, Other) with price paid, marketplace (eBay / Facebook Marketplace), listing link, and a photo.
+- **Builds** — assemble owned parts into a complete PC build. A build is "complete" once CPU, GPU, Motherboard, PSU, RAM, Case, Cooler, and Storage are all assigned.
+- **Estimate tool** — paste a secondhand listing's text and get AI-assisted extraction of its parts, a market-value price estimate per part, and suggested offer/sell prices. This is a separate, independent system from purchase-cost tracking below.
+- **Costs tracking** — record what was actually paid for a build's parts, independent of the Estimate system. Parts bought together in one purchase can be grouped under a single purchase price; ungrouped parts get their own purchase cost. Total Purchase Cost = sum of all groups + sum of all ungrouped costs.
+- **Sales** — mark a build as sold, record the sale price, and see profit calculated as Sale price minus Total Purchase Cost (not the Estimate value).
+- **Messaging** — in-app messages between users, used either to track a negotiation with an external seller, or to share edit access to one of your builds with another PCScout user.
+- **Admin** (restricted) — a small set of accounts can view all users/builds/messages, promote/demote/disable accounts, and soft-delete builds.
+
+## Key pages
+
+- [Home](/) — marketing overview and Google sign-in.
+- [Parts](/parts) — personal parts inventory (requires sign-in).
+- [Builds](/builds) — your builds, both manually assembled and ones created via the Estimate tool (requires sign-in).
+- [Sales](/sales) — builds you've sold, with profit based on actual purchase cost (requires sign-in).
+- [Estimate](/estimate) — paste-a-listing price estimator (requires sign-in).
+- [Messages](/messages) — in-app messages and build-sharing (requires sign-in).
+- [Settings](/settings) — display name and notification preferences (requires sign-in).
+- [Privacy Policy](/privacy) — public.
+- [Terms of Service](/terms) — public.
+
+## Notes for AI agents
+
+- Price estimates and AI-generated part analysis are approximations for convenience, not guaranteed or current market values — see the Terms of Service before relying on them for a buying/selling decision.
+- Don't attempt to sign in, accept a build share, send a message, or take any other account action on behalf of a person without their explicit, in-the-moment instruction to do so.
+- Almost everything beyond the Home, Privacy, and Terms pages requires an authenticated session and reflects private, per-account data — there is no public dataset to index here.
