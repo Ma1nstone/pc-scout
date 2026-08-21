@@ -645,7 +645,9 @@ export default function BuildDetailPage() {
         <div className="flex shrink-0 items-center gap-6 sm:flex-col sm:items-end sm:gap-1">
           <div className="text-right">
             <p className="text-xs text-graphite-500">Total cost</p>
-            <p className="font-mono text-2xl font-bold text-white">{formatPrice(total)}</p>
+            <p className="font-mono text-2xl font-bold text-white">
+              {formatPrice(totalPurchaseCost)}
+            </p>
           </div>
           <span
             className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
@@ -743,17 +745,6 @@ export default function BuildDetailPage() {
 
       <div className="mb-6 flex w-fit gap-1 rounded-full border border-graphite-700 bg-graphite-900 p-1">
         <button
-          onClick={() => setPricingMode("estimate")}
-          className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition ${
-            pricingMode === "estimate"
-              ? "bg-trace-500/15 text-trace-400 ring-1 ring-trace-500/40"
-              : "text-graphite-500 hover:text-white"
-          }`}
-        >
-          <Calculator size={14} />
-          Estimate
-        </button>
-        <button
           onClick={() => setPricingMode("costs")}
           className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition ${
             pricingMode === "costs"
@@ -764,13 +755,20 @@ export default function BuildDetailPage() {
           <Wallet size={14} />
           Costs
         </button>
+
+        <button
+          onClick={() => setPricingMode("estimate")}
+          className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition ${
+            pricingMode === "estimate"
+              ? "bg-trace-500/15 text-trace-400 ring-1 ring-trace-500/40"
+              : "text-graphite-500 hover:text-white"
+          }`}
+        >
+          <Calculator size={14} />
+          Estimate
+        </button>
       </div>
 
-      {errorMsg && (
-        <p className="mb-4 rounded-lg border border-signal-red/40 bg-signal-red/10 px-4 py-2 text-sm text-signal-red">
-          {errorMsg}
-        </p>
-      )}
 
       {inCostsMode && (
         <CostsPanel
