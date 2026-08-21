@@ -83,7 +83,7 @@ export default function BuildCard({ build, parts, costGroups = [], ownerName, sh
         <div className="shrink-0 text-right">
           <p className="text-[11px] text-graphite-500">Cost</p>
           <p className="font-mono text-base font-semibold text-white">
-            {formatPrice(total)}
+            {formatPrice(totalPurchaseCost)}
           </p>
         </div>
 
